@@ -4,12 +4,11 @@ OCENCH: A One-Class Classification method based on Expanded Non-Convex Hulls
 
 OCENCH is a One-Class Classification and Anomaly Detection method based on the use of random projections of the original data space to reduce their complexity, followed by a process based on  Delaunay triangulation to geometrically represent the normal class in these low-dimensional spaces through subdivisible and expandable non-convex hulls (NCH). The limits of the normal class are iteratively adapted during the training phase. This process is carried out based on a normalized parameter that controls the adjustment level and can be easily tuned by the user for each scenario.  Furthermore, if in a low-dimensional space the normal class cannot be accurately represented by a single non-convex hull, it will be subdivided as many times as necessary to fit the shape of the data.  The developed OCENCH algorithm allows working with non-convex data sets in a novel way, offering a robust behavior and remarkable performance, positioning itself as an alternative for both convex and non-convex problems. 
 
-
-![](https://raw.githubusercontent.com/DavidNovoaP/OCENCH/main/figures/figure1.png)
+<img src="https://raw.githubusercontent.com/DavidNovoaP/OCENCH/main/figures/figure1.png" width="700">
 
 > Several projections are used to reduce the dimensionality of the original dataset into 2-dimensional spaces.
 
-<img src="https://github.com/DavidNovoaP/OCENCH/blob/main/figures/figure2.jpg" width="500">
+<img src="https://github.com/DavidNovoaP/OCENCH/blob/main/figures/figure2.jpg" width="700">
 
 > The non-convex hull can be easlily computed in this 2-D spaces. Iteratively, separated regions will be splitted if necesssary.
 
