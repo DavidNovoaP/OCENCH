@@ -1,5 +1,8 @@
-# Example Package
+# OCENCH
 
-This is a simple example package. You can use
-[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
-to write your content.
+OCENCH: A One-Class Classification method based on Expanded Non-Convex Hulls
+
+## Pip Installation
+Pypi url: https://test.pypi.org/project/OCENCH/. To install, run the command
+
+    pip install -i https://test.pypi.org/simple/ OCENCH
