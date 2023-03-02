@@ -30,46 +30,47 @@ After this, we can now execute the two available methods:
 - **NCH_train (X, n_projections, l, extend)**: Trains the model with only normal data.
     - Parameters:
         - **X**: training dataset as a numpy array where each row corresponds with a sample and each column with a feature.
-   - **n_projections**: Number of random 2D-projections.
-   - ***l*** : Maximum edge length allowed in the NCH (Non-Convex Hull). Typical values: 0.3, 0.5, 1, 2.
-   - **extend**: Expansion parameter of the NCH. Extend = 0 implies no expansion, while extend > 0 will expand the edges if it's possible). Typical values: 0.05, 0.1, 0.2, 0.3.
- - Returns:
-    - **model**: entire model containing the information about the projection matrices and the ENCHs (Expanded Non-Convex Hulls).
+        - **n_projections**: Number of random 2D-projections.
+        - ***l*** : Maximum edge length allowed in the NCH (Non-Convex Hull). Typical values: 0.3, 0.5, 1, 2.
+        - **extend**: Expansion parameter of the NCH. Extend = 0 implies no expansion, while extend > 0 will expand the edges if it's possible). Typical values: 0.05, 0.1, 0.2, 0.3.
+    - Returns:
+        - **model**: entire model containing the information about the projection matrices and the ENCHs (Expanded Non-Convex Hulls).
 
 ------------
 
 - **NCH_classify (X, model)**: Predicts the class of new (normal and anomalous) data. 
- - Parameters:
-   - **X**: test dataset as a numpy array where each row corresponds with a sample and each column with a feature.
-   - **model**: Model returned during training.
- - Returns:
-    - **labels**: 1-D numpy array containing the predicted labels for the input dataset, where 0 = Normal and 1 = Anomaly.
+   - Parameters:
+       - **X**: test dataset as a numpy array where each row corresponds with a sample and each column with a feature.
+       - **model**: Model returned during training.
+   - Returns:
+       - **labels**: 1-D numpy array containing the predicted labels for the input dataset, where 0 = Normal and 1 = Anomaly.
 
 ------------
 
 ## Example
 
-    from sklearn.datasets import make_blobs
-    from NCH import *
-    
-    # Create a toy dataset using two isotropic Gaussian blobs (one for each class)
-    num_normal_samples = 1000 # Training dataset size (only normal data)
-    num_abnormal_samples = 10 # Number of anomalies to classify in test
-    X_train, _ = make_blobs(n_samples=num_normal_samples, centers= [(1,1)], n_features=10, cluster_std=1, random_state=0)
-    X_test_abnormal, _ = make_blobs(n_samples=num_abnormal_samples, centers=[(20,20)], n_features=10, cluster_std=1, random_state=0)
-    X_test_normal, _ = make_blobs(n_samples=num_abnormal_samples, centers=[(1,1)], n_features=10, cluster_std=1, random_state=0)
-    Y_train = [0] * num_normal_samples
-    Y_test_abnormal = [1] * num_abnormal_samples
-    Y_test_normal = [0] * num_abnormal_samples
-    X_test = np.concatenate((X_test_normal, X_test_abnormal), axis=0)
-    Y_test = np.concatenate((Y_test_normal, Y_test_abnormal), axis=0)
+```python
+from NCH import *
+from sklearn.datasets import make_blobs  
 
-    model = NCH_train(X=X_train, n_projections=20, l=2, extend=0.3) # Train the model with only normal data
-    prediction = NCH_classify(X=X_test, model=model) # Predict new (normal and abnormal) data
+# Create a toy dataset using two isotropic Gaussian blobs (one for each class)
+num_normal_samples = 1000 # Training dataset size (only normal data)
+num_abnormal_samples = 10 # Number of anomalies to classify in test
+X_train, _ = make_blobs(n_samples=num_normal_samples, centers= [(1,1)], n_features=10, cluster_std=1, random_state=0)
+X_test_abnormal, _ = make_blobs(n_samples=num_abnormal_samples, centers=[(20,20)], n_features=10, cluster_std=1, random_state=0)
+X_test_normal, _ = make_blobs(n_samples=num_abnormal_samples, centers=[(1,1)], n_features=10, cluster_std=1, random_state=0)
+Y_train = [0] * num_normal_sampleY_test_abnormal = [1] * num_abnormal_samples
+Y_test_normal = [0] * num_abnormal_samples
+X_test = np.concatenate((X_test_normal, X_test_abnormal), axis=0)
+Y_test = np.concatenate((Y_test_normal, Y_test_abnormal), axis=0)
 
-    # [0 = Normal | 1 = Anomaly]
-    print("Real classes: ", Y_test)
-    print("Predictions: ", prediction)
+model = NCH_train(X=X_train, n_projections=20, l=2, extend=0.3) # Train the model with only normal data
+prediction = NCH_classify(X=X_test, model=model) # Predict new (normal and abnormal) data
+
+# [0 = Normal | 1 = Anomaly]
+print("Real classes: ", Y_test)
+print("Predictions: ", prediction)
+```
 
 ## Citations
 
