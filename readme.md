@@ -2,15 +2,21 @@
 
 OCENCH: A One-Class Classification method based on Expanded Non-Convex Hulls
 
-![](https://pandao.github.io/editor.md/examples/images/4.jpg)
+OCENCH is a One-Class Classification and Anomaly Detection method based on the use of random projections of the original data space to reduce their complexity, followed by a process based on  Delaunay triangulation to geometrically represent the normal class in these low-dimensional spaces through subdivisible and expandable non-convex hulls (NCH). The limits of the normal class are iteratively adapted during the training phase. This process is carried out based on a normalized parameter that controls the adjustment level and can be easily tuned by the user for each scenario.  Furthermore, if in a low-dimensional space the normal class cannot be accurately represented by a single non-convex hull, it will be subdivided as many times as necessary to fit the shape of the data.  The developed OCENCH algorithm allows working with non-convex data sets in a novel way, offering a robust behavior and remarkable performance, positioning itself as an alternative for both convex and non-convex problems. 
 
-> Follow your heart.
+
+![](https://raw.githubusercontent.com/DavidNovoaP/OCENCH/main/figures/figure1.png)
+
+> Several projections are used to reduce the dimensionality of the original dataset into 2-dimensional spaces.
+
+![](https://github.com/DavidNovoaP/OCENCH/blob/main/figures/figure2.jpg?raw=true)
+
+> The non-convex hull can be easlily computed in this 2-D spaces. Iteratively, separated regions will be splitted if necesssary.
 
 ## Install
 OCENCH can be installed from [PyPI](https://pypi.org/project/ocench/) using the command:
 
     pip install ocench
-
 
 ## Running OCENCH
 To run OCENCH it is necessary to have installed the libraries listed in the *requirements.txt* file.
@@ -35,28 +41,28 @@ After this, we can now execute the two available methods:
 
 ## Example
 
-from sklearn.datasets import make_blobs
-import pandas as pd
-from NCH import *
+    from sklearn.datasets import make_blobs
+    from NCH import *
+    
+    # Create a toy dataset using two isotropic Gaussian blobs (one for each class)
+    num_normal_samples = 1000 # Training dataset size (only normal data)
+    num_abnormal_samples = 10 # Number of anomalies to classify in test
+    X_train, _ = make_blobs(n_samples=num_normal_samples, centers= [(1,1)], n_features=10, cluster_std=1, random_state=0)
+    X_test_abnormal, _ = make_blobs(n_samples=num_abnormal_samples, centers=[(20,20)], n_features=10, cluster_std=1, random_state=0)
+    X_test_normal, _ = make_blobs(n_samples=num_abnormal_samples, centers=[(1,1)], n_features=10, cluster_std=1, random_state=0)
+    Y_train = [0] * num_normal_samples
+    Y_test_abnormal = [1] * num_abnormal_samples
+    Y_test_normal = [0] * num_abnormal_samples
+    X_test = np.concatenate((X_test_normal, X_test_abnormal), axis=0)
+    Y_test = np.concatenate((Y_test_normal, Y_test_abnormal), axis=0)
 
-num_normal_samples = 1000 # Training dataset size (only normal data)
-num_abnormal_samples = 10 # Number of anomalies to classify in test
-```
-# Create a toy dataset using two isotropic Gaussian blobs (one for each class)
-X_train, _ = make_blobs(n_samples=num_normal_samples, centers= [(1,1)], n_features=10, cluster_std=1, random_state=0)
-X_test_abnormal, _ = make_blobs(n_samples=num_abnormal_samples, centers=[(20,20)], n_features=10, cluster_std=1, random_state=0)
-X_test_normal, _ = make_blobs(n_samples=num_abnormal_samples, centers=[(1,1)], n_features=10, cluster_std=1, random_state=0)
-Y_train = [0] * num_normal_samples
-Y_test_abnormal = [1] * num_abnormal_samples
-Y_test_normal = [0] * num_abnormal_samples
-X_test = np.concatenate((X_test_normal, X_test_abnormal), axis=0)
-Y_test = np.concatenate((Y_test_normal, Y_test_abnormal), axis=0)
-model = NCH_train(X=X_train, n_projections=20, l=2, extend=0.3) # Train the model with only normal data
-prediction = NCH_classify(X=X_test, model=model) # Predict new (normal and abnormal) data
-# [0 = Normal | 1 = Anomaly]
-print("Real classes: ", Y_test)
-print("Predictions: ", prediction)
-```
+    model = NCH_train(X=X_train, n_projections=20, l=2, extend=0.3) # Train the model with only normal data
+    prediction = NCH_classify(X=X_test, model=model) # Predict new (normal and abnormal) data
+
+    # [0 = Normal | 1 = Anomaly]
+    print("Real classes: ", Y_test)
+    print("Predictions: ", prediction)
+
 ## Citations
 
 If you plan to use this code, please cite the following paper where the method was originally proposed:
