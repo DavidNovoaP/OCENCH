@@ -19,6 +19,9 @@ OCENCH can be installed from [PyPI](https://pypi.org/project/ocench/) using the 
 To run OCENCH it is necessary to have installed the libraries listed in the *requirements.txt* file.
 
 After this, we can now execute the two available methods:
+
+------------
+
 - **NCH_train (X, n_projections, l, extend)**: Trains the model with only normal data.
  - Parameters:
    - **X**: training dataset as a numpy array where each row corresponds with a sample and each column with a feature.
@@ -31,11 +34,13 @@ After this, we can now execute the two available methods:
 ------------
 
 - **NCH_classify (X, model)**: Predicts the class of new (normal and anomalous) data. 
- Parameters:
+ - Parameters:
    - **X**: test dataset as a numpy array where each row corresponds with a sample and each column with a feature.
    - **model**: Model returned during training.
  - Returns:
     - **labels**: 1-D numpy array containing the predicted labels for the input dataset, where 0 = Normal and 1 = Anomaly.
+
+------------
 
 ## Example
 
