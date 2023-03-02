@@ -2,7 +2,9 @@
 
 OCENCH is a One-Class Classification and Anomaly Detection method based on the use of random projections of the original data space to reduce their complexity (Figure 1), followed by a process based on  Delaunay triangulation to geometrically represent the normal class in these low-dimensional spaces through subdivisible and expandable non-convex hulls (Figure 2). 
 
-The limits of the normal class are iteratively adapted during the training phase. This process is carried out based on a normalized parameter (*l*) that controls the adjustment level and can be easily tuned by the user for each scenario.  Furthermore, if in a low-dimensional space the normal class cannot be accurately represented by a single non-convex hull, it will be subdivided as many times as necessary to fit the shape of the data.  The developed OCENCH algorithm allows working with non-convex data sets in a novel way, offering a robust behavior and remarkable performance, positioning itself as an alternative for both convex and non-convex problems. 
+The limits of the normal class are iteratively adapted during the training phase. This process is carried out based on a normalized parameter (*l*) that controls the adjustment level and can be easily tuned by the user for each scenario.  Furthermore, if in a low-dimensional space the normal class cannot be accurately represented by a single non-convex hull, it will be subdivided as many times as necessary to fit the shape of the data.  
+
+The developed OCENCH algorithm allows working with non-convex data sets in a novel way, offering a robust behavior and remarkable performance, positioning itself as an alternative for both convex and non-convex problems. 
 
 
 <img src="https://raw.githubusercontent.com/DavidNovoaP/OCENCH/main/figures/figure1.png" width="700">
@@ -26,8 +28,8 @@ After this, we can now execute the two available methods:
 ------------
 
 - **NCH_train (X, n_projections, l, extend)**: Trains the model with only normal data.
- - Parameters:
-   - **X**: training dataset as a numpy array where each row corresponds with a sample and each column with a feature.
+    - Parameters:
+        - **X**: training dataset as a numpy array where each row corresponds with a sample and each column with a feature.
    - **n_projections**: Number of random 2D-projections.
    - ***l*** : Maximum edge length allowed in the NCH (Non-Convex Hull). Typical values: 0.3, 0.5, 1, 2.
    - **extend**: Expansion parameter of the NCH. Extend = 0 implies no expansion, while extend > 0 will expand the edges if it's possible). Typical values: 0.05, 0.1, 0.2, 0.3.
