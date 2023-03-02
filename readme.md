@@ -2,7 +2,7 @@
 
 OCENCH is a One-Class Classification and Anomaly Detection method based on the use of random projections of the original data space to reduce their complexity (Figure 1), followed by a process based on  Delaunay triangulation to geometrically represent the normal class in these low-dimensional spaces through subdivisible and expandable non-convex hulls (Figure 2). 
 
-The limits of the normal class are iteratively adapted during the training phase. This process is carried out based on a normalized parameter (*l*) that controls the adjustment level and can be easily tuned by the user for each scenario.  Furthermore, if in a low-dimensional space the normal class cannot be accurately represented by a single non-convex hull, it will be subdivided as many times as necessary to fit the shape of the data.  
+The limits of the normal class are iteratively adapted during the training phase. This process is carried out based on a normalized parameter (*l*) that controls the adjustment level and can be easily tuned by the user for each scenario.  Furthermore, if in a low-dimensional space the normal class cannot be accurately represented by a single non-convex hull, it will be subdivided as many times as necessary to fit the shape of the data. Finally, to avoid the effect of over-adjustment of the training data, the limits of the NCHs will be expanded based on the expansion factor parameter (*extend*).
 
 The developed OCENCH algorithm allows working with non-convex data sets in a novel way, offering a robust behavior and remarkable performance, positioning itself as an alternative for both convex and non-convex problems. 
 
@@ -23,7 +23,7 @@ OCENCH can be installed from [PyPI](https://pypi.org/project/ocench/) using the 
 ## Running OCENCH
 To run OCENCH it is necessary to have installed the libraries listed in the *requirements.txt* file.
 
-After this, we can now execute the two available methods:
+After this, we can now execute the two available methods. We recommend you read the [original article](https://www.sciencedirect.com/science/article/pii/S1566253522000896) to understand the operation and impact of the parameters in detail.
 
 ------------
 
