@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "OCENCH"
+version = "0.0.1"
+authors = [
+  { name="David Novoa-Paradela", email="david.novoa@udc.es" },
+  { name="Oscar Fontenla-Romero", email="oscar.fontenla@udc.es" },
+  { name="Bertha Guijarro-Berdiñas", email="berta.guijarro@udc.es" },
+]
+description = "OCENCH: A One-Class Classification method based on Expanded Non-Convex Hulls"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/DavidNovoaP/OCENCH"
+"Bug Tracker" = "https://github.com/DavidNovoaP/OCENCH/issues"
