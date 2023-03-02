@@ -64,8 +64,10 @@ Y_test_normal = [0] * num_abnormal_samples
 X_test = np.concatenate((X_test_normal, X_test_abnormal), axis=0)
 Y_test = np.concatenate((Y_test_normal, Y_test_abnormal), axis=0)
 
-model = NCH_train(X=X_train, n_projections=20, l=2, extend=0.3) # Train the model with only normal data
-prediction = NCH_classify(X=X_test, model=model) # Predict new (normal and abnormal) data
+# Train the model with only normal data
+model = NCH_train(X=X_train, n_projections=20, l=2, extend=0.3) 
+# Predict new (normal and abnormal) data
+prediction = NCH_classify(X=X_test, model=model) 
 
 # [0 = Normal | 1 = Anomaly]
 print("Real classes: ", Y_test)
