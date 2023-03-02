@@ -1,8 +1,6 @@
-# OCENCH
+# OCENCH: A One-Class Classification method based on Expanded Non-Convex Hulls
 
-OCENCH: A One-Class Classification method based on Expanded Non-Convex Hulls
-
-OCENCH is a One-Class Classification and Anomaly Detection method based on the use of random projections of the original data space to reduce their complexity, followed by a process based on  Delaunay triangulation to geometrically represent the normal class in these low-dimensional spaces through subdivisible and expandable non-convex hulls (NCH). The limits of the normal class are iteratively adapted during the training phase. This process is carried out based on a normalized parameter that controls the adjustment level and can be easily tuned by the user for each scenario.  Furthermore, if in a low-dimensional space the normal class cannot be accurately represented by a single non-convex hull, it will be subdivided as many times as necessary to fit the shape of the data.  The developed OCENCH algorithm allows working with non-convex data sets in a novel way, offering a robust behavior and remarkable performance, positioning itself as an alternative for both convex and non-convex problems. 
+OCENCH is a One-Class Classification and Anomaly Detection method based on the use of random projections of the original data space to reduce their complexity, followed by a process based on  Delaunay triangulation to geometrically represent the normal class in these low-dimensional spaces through subdivisible and expandable non-convex hulls (NCH). The limits of the normal class are iteratively adapted during the training phase. This process is carried out based on a normalized parameter (*l*) that controls the adjustment level and can be easily tuned by the user for each scenario.  Furthermore, if in a low-dimensional space the normal class cannot be accurately represented by a single non-convex hull, it will be subdivided as many times as necessary to fit the shape of the data.  The developed OCENCH algorithm allows working with non-convex data sets in a novel way, offering a robust behavior and remarkable performance, positioning itself as an alternative for both convex and non-convex problems. 
 
 <img src="https://raw.githubusercontent.com/DavidNovoaP/OCENCH/main/figures/figure1.png" width="700">
 
@@ -30,9 +28,10 @@ After this, we can now execute the two available methods:
  - Returns:
     - **model**: entire model containing the information about the projection matrices and the ENCHs (Expanded Non-Convex Hulls).
 
+------------
 
 - **NCH_classify (X, model)**: Predicts the class of new (normal and anomalous) data. 
- - Parameters:
+ Parameters:
    - **X**: test dataset as a numpy array where each row corresponds with a sample and each column with a feature.
    - **model**: Model returned during training.
  - Returns:
