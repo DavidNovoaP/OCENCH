@@ -9,7 +9,7 @@ OCENCH is a One-Class Classification and Anomaly Detection method based on the u
 
 > Several projections are used to reduce the dimensionality of the original dataset into 2-dimensional spaces.
 
-![](https://github.com/DavidNovoaP/OCENCH/blob/main/figures/figure2.jpg?raw=true)
+![](https://github.com/DavidNovoaP/OCENCH/blob/main/figures/figure2.jpg?raw=true | width=300)
 
 > The non-convex hull can be easlily computed in this 2-D spaces. Iteratively, separated regions will be splitted if necesssary.
 
