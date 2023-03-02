@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "OCENCH"
+name = "ocench"
 version = "0.0.1"
 authors = [
   { name="David Novoa-Paradela", email="david.novoa@udc.es" },
