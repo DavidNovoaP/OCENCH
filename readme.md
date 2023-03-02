@@ -21,7 +21,7 @@ OCENCH can be installed from [PyPI](https://pypi.org/project/ocench/) using the 
     pip install ocench
 
 ## Running OCENCH
-To run OCENCH it is necessary to have installed the libraries listed in the *requirements.txt* file.
+To run OCENCH it is necessary to have installed the libraries listed in the [*requirements.txt* file](https://github.com/DavidNovoaP/OCENCH/blob/main/requirements.txt).
 
 After this, we can now execute the two available methods. We recommend you read the [original article](https://www.sciencedirect.com/science/article/pii/S1566253522000896) to understand the operation and impact of the parameters in detail.
 
