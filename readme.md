@@ -11,7 +11,7 @@ The developed OCENCH algorithm allows working with non-convex data sets in a nov
 
 > Figure 1: Instead of calculating the convex hull of a point cloud in the original space (upper part of Figure 1), the point cloud is projected into two-dimensional spaces in which the calculation of the convex hull is affordable (bottom of Figure 1). Anomalous data (red) will ideally lie outside the normal limits in some of the projections. 
 
-<img src="https://github.com/DavidNovoaP/OCENCH/blob/main/figures/figure2.jpg" width="400">
+<img src="https://github.com/DavidNovoaP/OCENCH/blob/main/figures/figure2.jpg?raw=true" width="400">
 
 > Figure 2: Characterization of two separate point regions using OCENCH: (a) Projected data set; (b) Initial convex hull; (c) Pruned non-convex hull; (d) Subdivided non-convex hulls.
 
