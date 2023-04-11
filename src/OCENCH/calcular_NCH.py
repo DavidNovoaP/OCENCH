@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 from scipy.spatial import Delaunay, ConvexHull
 from IPython import get_ipython
 from bentley_ottmann.planar import contour_self_intersects # Implementacion del algoritmo Bentley Ottmann
-from calcular_NCH import *
 from aux_functions import *
 
 # #############################################################################
