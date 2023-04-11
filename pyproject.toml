@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ocench"
-version = "0.0.5"
+version = "0.0.6"
 authors = [
   { name="David Novoa-Paradela", email="david.novoa@udc.es" },
   { name="Oscar Fontenla-Romero", email="oscar.fontenla@udc.es" },
