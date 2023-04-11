@@ -1,6 +1,6 @@
 from sklearn.datasets import make_blobs
 import pandas as pd
-from NCH import *
+from ocench import *
 
 num_normal_samples = 1000 # Training dataset size (only normal data)
 num_abnormal_samples = 10 # Number of anomalies to classify in test
@@ -15,8 +15,8 @@ Y_test_normal = [0] * num_abnormal_samples
 X_test = np.concatenate((X_test_normal, X_test_abnormal), axis=0)
 Y_test = np.concatenate((Y_test_normal, Y_test_abnormal), axis=0)
 
-model = NCH_train(X=X_train, n_projections=20, l=2, extend=0.3) # Train the model with only normal data
-prediction = NCH_classify(X=X_test, model=model) # Predict new (normal and abnormal) data
+model = OCENCH_train(X=X_train, n_projections=20, l=2, extend=0.3) # Train the model with only normal data
+prediction = OCENCH_classify(X=X_test, model=model) # Predict new (normal and abnormal) data
 
 print("[0 = Normal | 1 = Anomaly]")
 print("Real classes: ", Y_test)

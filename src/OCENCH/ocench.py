@@ -14,7 +14,7 @@ from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
 import random
 
-def NCH_train (X, n_projections, l, extend):
+def OCENCH_train (X, n_projections, l, extend):
     contraer_SCH = False
     plot = False
     subdividir = True
@@ -64,7 +64,7 @@ def NCH_train (X, n_projections, l, extend):
 
     return l_cierres_separados, projections, l_vertices, l_aristas, l_vertices_expandidos, l_orden_vertices, l_normalizadores, l_asociacion_vertices_e_indices
 
-def NCH_classify (X, model):        
+def OCENCH_classify (X, model):        
     plot = False
     n_projections = len(model[0])
     l_cierres_separados, projections, l_vertices, l_aristas, l_vertices_expandidos, l_orden_vertices, l_normalizadores, l_asociacion_vertices_e_indices = model
