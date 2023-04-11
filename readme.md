@@ -50,7 +50,7 @@ After this, we can now execute the two available methods. We recommend you read 
 ## Example
 
 ```python
-from NCH import *
+from ocench import *
 from sklearn.datasets import make_blobs  
 
 # Create a toy dataset using two isotropic Gaussian blobs (one for each class)
@@ -66,9 +66,9 @@ X_test = np.concatenate((X_test_normal, X_test_abnormal), axis=0)
 Y_test = np.concatenate((Y_test_normal, Y_test_abnormal), axis=0)
 
 # Train the model with only normal data
-model = NCH_train(X=X_train, n_projections=20, l=2, extend=0.3) 
+model = OCENCH_train(X=X_train, n_projections=20, l=2, extend=0.3) 
 # Predict new (normal and abnormal) data
-prediction = NCH_classify(X=X_test, model=model) 
+prediction = OCENCH_classify(X=X_test, model=model) 
 
 # [0 = Normal | 1 = Anomaly]
 print("Real classes: ", Y_test)
