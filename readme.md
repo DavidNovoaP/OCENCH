@@ -59,7 +59,7 @@ num_abnormal_samples = 10 # Number of anomalies to classify in test
 X_train, _ = make_blobs(n_samples=num_normal_samples, centers= [(1,1)], n_features=10, cluster_std=1, random_state=0)
 X_test_abnormal, _ = make_blobs(n_samples=num_abnormal_samples, centers=[(20,20)], n_features=10, cluster_std=1, random_state=0)
 X_test_normal, _ = make_blobs(n_samples=num_abnormal_samples, centers=[(1,1)], n_features=10, cluster_std=1, random_state=0)
-Y_train = [0] * num_normal_sample
+Y_train = [0] * num_normal_samples
 Y_test_abnormal = [1] * num_abnormal_samples
 Y_test_normal = [0] * num_abnormal_samples
 X_test = np.concatenate((X_test_normal, X_test_abnormal), axis=0)
