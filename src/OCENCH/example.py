@@ -1,6 +1,5 @@
-from sklearn.datasets import make_blobs
-import pandas as pd
 from ocench import *
+from sklearn.datasets import make_blobs
 
 num_normal_samples = 1000 # Training dataset size (only normal data)
 num_abnormal_samples = 10 # Number of anomalies to classify in test
